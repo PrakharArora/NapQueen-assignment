@@ -60,9 +60,7 @@ function App() {
       {message && <div className="alert success">{message}</div>}
       <TodoForm handleAddTask={handleAddTask} task={task} onEdit={handleEdit} isOpen={isOpen} setIsOpen={setIsOpen} />
       <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
-      <TodoList tasks={tasks} setTasks={setTasks} filter={selectedTab} setTask={setTask} setIsOpen={setIsOpen} setNewTask={function (value: React.SetStateAction<boolean>): void {
-        throw new Error("Function not implemented.");
-      } } />
+      <TodoList tasks={tasks} setTasks={setTasks} filter={selectedTab} setTask={setTask} setIsOpen={setIsOpen} />
     </div>
   );
 }

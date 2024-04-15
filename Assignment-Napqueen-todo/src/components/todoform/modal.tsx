@@ -1,9 +1,10 @@
-import React, { FC, MouseEvent } from 'react';
+import React, { FC, MouseEvent, ReactNode } from 'react';
 import './Modal.scss';
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
+  children: ReactNode; // Explicit typing for children
 }
 
 const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
