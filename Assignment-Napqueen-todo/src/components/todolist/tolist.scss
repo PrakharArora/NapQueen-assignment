@@ -1,0 +1,143 @@
+$breakpoint-small: 1000px;
+$breakpoint-medium: 1600px;
+$breakpoint-large: 2800px;
+
+// Mixin for media queries
+@mixin respond-to($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+.list_container {
+  width: 100%;
+  max-width: 235rem;
+  margin: 0 auto;
+  background-color: rgb(248, 248, 255); 
+  border-radius: 4rem;
+  padding: 20px; 
+  @include respond-to($breakpoint-small) {
+    max-width: 200rem;
+  }
+  
+  @include respond-to($breakpoint-medium) {
+    max-width: 220rem;
+  }
+  
+  @include respond-to($breakpoint-large) {
+    max-width: 235rem;
+  }
+}
+
+.parent-div {
+  width: 60rem;
+  height: 50rem;
+  border-radius: 4rem;
+}
+
+.list_item {
+  display: flex;
+  border-radius: 4rem;
+  align-items: center;
+  margin: 0.5rem;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  transition: background-color 0.3s ease;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.list_title {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+}
+
+.item_actions {
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+}
+
+.complete {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #73c417;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  border-radius: 2rem;
+  width: 16rem;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 0.9;
+  margin: 0;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+
+  @include respond-to($breakpoint-small) {
+    width: 14rem;
+  }
+
+  @include respond-to($breakpoint-medium) {
+    width: 15rem;
+  }
+
+  @include respond-to($breakpoint-large) {
+    width: 16rem;
+  }
+
+  &:hover, &:focus {
+    background-color: #aadb82;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    background-color: #c85000;
+    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task_added_animation {
+  animation: fadeIn 0.3s ease;
+}
