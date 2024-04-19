@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./tolist.scss";
+import { ToastContainer, toast } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css';
 
 import { storeDataLocal } from "../../utils/storage";
 
@@ -16,20 +18,18 @@ interface TodoListProps {
   filter: string;
   setTask: React.Dispatch<React.SetStateAction<Task | null>>;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setNewTask: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const TodoList: React.FC<TodoListProps> = ({ tasks, setTasks, filter, setTask, setIsOpen, setNewTask }) => {
+const TodoList: React.FC<TodoListProps> = ({ tasks, setTasks, filter, setTask, setIsOpen }) => {
   const [filteredTasks, setFilteredTasks] = useState<Task[]>(tasks);
 
   const handleEditClick = (task: Task) => {
     setTask(task);
     setIsOpen(true);
 
-    if (task.isCompleted) {
-      setNewTask(false);
-    }
+   
   };
+  const notify = () => toast("Task completed !");
 
   useEffect(() => {
     let results: Task[];
@@ -93,7 +93,9 @@ const TodoList: React.FC<TodoListProps> = ({ tasks, setTasks, filter, setTask, s
                   </div>
                 </div>
                 <span onClick={() => handleClickAction(task.id, "markAsDone")}>
-                  <button className="complete">Mark as Completed</button>
+                  <button className="complete" onClick={notify}>Mark as Completed</button>
+                  <ToastContainer />
+
                 </span>
               </div>
               <div className="item_actions">
