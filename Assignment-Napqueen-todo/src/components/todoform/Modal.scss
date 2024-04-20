@@ -92,16 +92,22 @@ $button_text_color: #222;
   width: 100%;
 }
 
+.form_input_row textarea{
+  color: #000;
+  background-color: #fff;
+
+}
 .taskinput {
   width: 100%;
   height: 40px;
   padding: 0 5px;
-  outline: transparent;
   font-size: 16px;
-  color: $form_color;
+  background-color: #fff;
+  color: #000;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
+
 
 .invalid {
   border: 1px solid $invalid_color;
